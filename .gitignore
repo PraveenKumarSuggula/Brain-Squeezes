@@ -1,0 +1,63 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/BrainSqueezes_API/.vs/BrainSqueezes_API/v17/.suo
+/BrainSqueezes_API/.vs/BrainSqueezes_API/DesignTimeBuild/.dtbcache.v2
+/BrainSqueezes_API/.vs/BrainSqueezes_API/v17/.suo
+/BrainSqueezes_API/.vs/BrainSqueezes_API/config/applicationhost.config
+
+# From .NET Core 3.0 you can use the command: `dotnet new gitignore` to generate a customizable .gitignore file
+
+*.swp
+*.*~
+project.lock.json
+.DS_Store
+*.pyc
+
+# Visual Studio Code
+.vscode
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+msbuild.log
+msbuild.err
+msbuild.wrn
+
+# Visual Studio 2022
+.vs/
+*.dbmdl
+*.jfm
+
+*.suo
+*.user
+_ReSharper.*
+bin
+obj
+packages
+/BrainSqueezes_API/BrainSqueezes_API/obj/Debug/net6.0/BrainSqueezes_API.csproj.AssemblyReference.cache
+/BrainSqueezes_API/BrainSqueezes_API/obj/Debug/net6.0/BrainSqueezes_API.csproj.AssemblyReference.cache
+/BrainSqueezes_API/BrainSqueezes_API/obj/Debug/net6.0/BrainSqueezes_API.csproj.AssemblyReference.cache
+/BrainSqueezes_API/BrainSqueezes_API/obj/Debug/net6.0/BrainSqueezes_API.assets.cache
+/BrainSqueezes_API/BrainSqueezes_API/obj/BrainSqueezes_API.csproj.nuget.dgspec.json
+/BrainSqueezes_API/BrainSqueezes_API/obj/project.assets.json
+/BrainSqueezes_API/BrainSqueezes_API/obj/project.nuget.cache
+BrainSqueezes_API/.vs/BrainSqueezes_API/v17/.suo
+BrainSqueezes_API/BrainSqueezes_API/obj/Debug/net6.0/BrainSqueezes_API.csproj.AssemblyReference.cache
+/BrainSqueezes_API/.vs/BrainSqueezes_API/v17/.suo
+/BrainSqueezes_API/BrainSqueezes_API/obj/Debug/net6.0/BrainSqueezes_API.csproj.AssemblyReference.cache

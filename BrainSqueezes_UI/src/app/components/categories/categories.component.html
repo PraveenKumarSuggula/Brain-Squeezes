@@ -1,0 +1,77 @@
+<div class="container">
+    <h1 style="color: #AAA7A7;">Categories</h1>
+    <button type="button" style="margin-top: -50px; font-weight: 600;" class="btn themebgColor text-white floatright" (click)="isQuestionType(true)" data-bs-toggle="modal" data-bs-target="#filesModal">+ Ask Question</button>
+    <br>
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item mt-1" *ngFor="let file of lupFileTypes; let i = index">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" [class.collapsed]="expandedIndex !== i"
+                    (click)="toggleAccordion(i)">
+                    <div class="d-flex justify-content-between w-100">
+                        <table class="careerTable" width="100%">
+                            <tbody>
+                                <tr>
+                                    <td width="70%">
+                                        <h5 style="color: #095b35">{{file.categoryType}}</h5>
+                                    </td>
+                                    <td width="30% floatLeft">
+                                        <h5 style="color: red; font-weight: 600;">{{file.queLen}}+</h5>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse" [class.collapse]="expandedIndex !== i"
+                aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div *ngFor="let que of categororizedQues; let ind = index" class="m-3">
+                    <div class=" m-3 mt-0 accordian">
+                        <div class="accordion-body container">
+                            <h4 class="mb-0 themeColor">Question Id: {{'#'}}{{que.qid}} 
+                                <a href="" style="font-size: large;color: orange;" class="themeColor" data-bs-toggle="modal" title="To check available answers" data-bs-target="#answersModel"
+                                    (click)="onUpdateAnswersModel(que.qid)">(Answers)</a></h4>
+                            <app-qanda-accordian [data]="que"></app-qanda-accordian>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="categororizedQues.length == 0" class="m-3">
+                    <h4 class="themeColor">No Questions in the category</h4>
+                    <button type="button" class="btn themebgColor text-white" (click)="isQuestionType(true)"
+                                    data-bs-toggle="modal" data-bs-target="#filesModal">+ Ask Question</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="answersModel" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel"
+    aria-modal="true" role="dialog">
+    <div class="modal-dialog" style="min-width: 85%;">
+        <div class="modal-content">
+            <div class="modal-header themebgColor">
+                <h5 class="modal-title text-white" id="noteModalLabel">Answers
+                </h5>
+                <button type="button" class="btn-close btn-close-white opacity-100" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group d-inline my-3">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div *ngFor="let ans of updatedAnswers">
+                                <app-qanda-accordian [data]="ans" [question_type]="false"></app-qanda-accordian>
+                            </div>
+                            <div *ngIf="updatedAnswers.length == 0">
+                                <h4>No Previous Answers</h4>
+                            </div>
+                            <button class="btn-sm themebgColor text-white btnOptions" (click)="isQuestionType(false)" data-bs-toggle="modal"
+                            data-bs-target="#filesModal">+ Add Answer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-qanda-popup></app-qanda-popup>

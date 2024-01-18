@@ -1,0 +1,28 @@
+<a class="sidebar-brand d-md-flex align-items-center justify-content-center cursor" routerLink="/dashboard">
+    <div class="sidebar-brand-icon-a">
+        <img src="../../../assets/images/b_icon.png" alt="">
+            <a class="nav-link"><span>Brain Squeezes</span></a>
+    </div>
+    <div class="sidebar-brand-icon-b">
+        <img src="../../../assets/images/b_icon.png" alt="">
+    </div>
+</a>
+
+<hr class="sidebar-divider d-none d-md-block">
+<li class="nav-item cursor" routerLink="/dashboard">
+    <img src="../../../assets/images/dashboard.png" alt="">
+    <a *ngIf="!toggleChanged" class="nav-link"><span>Dashboard</span></a>
+</li>
+<hr *ngIf="!toggleChanged" class="sidebar-divider d-none d-md-block">
+<li class="nav-item cursor" routerLink="/categories">
+    <img src="../../../assets/images/categorize.png" alt="">
+    <a *ngIf="!toggleChanged" class="nav-link"><span>Categories</span></a>
+</li>
+<li class="nav-item cursor" routerLink="/questions">
+    <img src="../../../assets/images/tasks.png" alt="">
+    <a *ngIf="!toggleChanged" class="nav-link"><span>Questions</span></a>
+</li>
+<li class="nav-item cursor" routerLink="/tags">
+    <img src="../../../assets/images/tags.png" alt="">
+    <a *ngIf="!toggleChanged" class="nav-link"><span>Tags</span></a>
+</li>

@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="floatright mx-5 mb-2">
+        <img class="floatLeft cursor" style="width: 25px;" src="../../../assets/images/user_account.png">&nbsp;
+        <em style="font-size: 15px;" class="cursor">{{ data.authorName }}</em>
+    </div>
+    <ng-container *ngIf="data.title">
+        <div class="mx-1 profile mb-2 overflowAuto">
+            <h5 class="floatLeft">{{ question_type ? 'Title: ' + data.title : data.title}}</h5>
+        </div>
+    </ng-container>
+    <div *ngIf="!data.title" class="mx-1 mb-2 profile mb-1">
+    </div>
+    <div class="body">
+        <div class=" mx-1 tools bodyheight w100" style="margin-top: -24px;">
+            <div class="div" style="width: 100%;">
+                <div style="width: 20%; margin-right: -10px;">
+                    <i *ngIf="rateUp === 'voted'" class="fas fa-caret-up cursor rate active" (click)="notRateUp()"></i>
+                    <i *ngIf="rateUp === 'not-voted'" class="fas fa-caret-up cursor rate inactive"
+                        (click)="onRateUp()"></i>
+                </div>
+                <div class="votecount">
+                    <strong style="float: right; margin-top: -27px;">{{ upvoteCount }}</strong>
+                </div>
+                <div style="width: 20%; margin-left: -8px;">
+                    <i *ngIf="rateDown === 'voted'" class="fas fa-caret-up fa-rotate-180 cursor rate rate-down active"
+                        (click)="notRateDown()"></i>
+                    <i *ngIf="rateDown === 'not-voted'"
+                        class="fas fa-caret-up fa-rotate-180 cursor rate rate-down inactive" (click)="onRateDown()"></i>
+                </div>
+            </div>
+
+        </div>
+
+        <div class=" mx-1 tools bodyheight">
+            <img *ngIf="!bookmarked" class="floatLeft mb-2 cursor" style="width: 25px;"
+                src="../../../assets/images/bookmark_outlined.png" (click)="onBookmark()">
+            <img *ngIf="bookmarked" class="floatLeft mb-2 cursor" style="width: 25px;"
+                src="../../../assets/images/bookmark_booked.png" (click)="onBookmark()">
+            <img class="floatLeft cursor" style="width: 25px;" src="../../../assets/images/chat_message.png">
+        </div>
+        <div class=" mb-3 content bodyheight" style="font-size: 18px;">
+            {{data.description}}
+        </div>
+        <div class=" mx-1 tools bodyheight">
+            <div class="mx-2 w-100">
+                <a href="https://green-ground-0a69eb70f.4.azurestaticapps.net" target="_blank"><img class="floatLeft mb-2 cursor mb-2" style="width: 20px;"
+                    src="../../../assets/images/video_call.png"></a>
+                
+                <a href="https://green-ground-0a69eb70f.4.azurestaticapps.net" target="_blank"><img class="floatLeft mb-2 cursor mt-2" style="width: 20px;" 
+                    src="../../../assets/images/call.png"></a>
+            </div>
+        </div>
+        <!-- <div class=" mx-1 tools">
+            expand and collapse
+        </div> -->
+    </div>
+    <div class=" mx-1 profile" style="min-height: 100px;">
+        <div class="w-100">
+            <div *ngIf="question_type" style="width: 20%;" class="floatLeft">
+                <button class="btn-sm themebgColor text-white btnOptions" (click)="toggleQandAType(false)" data-bs-toggle="modal"
+                    data-bs-target="#filesModal">+ Add Answer</button>
+            </div>
+            <div style="width: 26%;" class="floatright">
+                <button class="btn themebgColor text-white mx-4 btnOptions" (click)="downloadFile('question',data.file_id)"><i class="fa fa-paperclip fa-lg"
+                        aria-hidden="true" (click)="downloadFile('question',data.file_id)"></i>&nbsp; Download &nbsp;</button>
+            </div>
+            <div style="width: 20%;" class="floatright">
+                <button class="btn themebgColor text-white mx-2 btnOptions" (click)="previewFile('question',data.file_id)"><i class="fa fa-paperclip fa-lg"
+                        aria-hidden="true"  (click)="previewFile('question',data.file_id)"></i>&nbsp; Preview &nbsp;</button>
+            </div>
+        </div>
+    </div>
+</div>

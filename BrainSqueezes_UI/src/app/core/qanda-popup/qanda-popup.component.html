@@ -1,0 +1,90 @@
+<div class="modal fade" id="filesModal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel"
+    aria-modal="true" role="dialog" appFileDragDrop (draggedFile)="UploadDraggedFiles($any($event))">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header themebgColor">
+                <h5 class="modal-title text-white" id="noteModalLabel">Create {{type_question ? 'Question':'Answer'}}</h5>
+                <button type="button" id="closeQandA" class="btn-close btn-close-white opacity-100" (click)="dismissParentPopups()" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="color: #F4EFEF;">
+                <div class="input-group d-inline my-3">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <form [formGroup]="QandAForm">
+                                <input *ngIf="type_question" style="font-size: 16px;" formControlName="title"
+                                    class="form-control form-control-sm mb-3" rows="3"
+                                    placeholder="*Please Enter Title">
+                                <div class="color-red mb-2"
+                                    *ngIf="(formvalid) || (QandAForm.controls['title'].dirty)">
+                                    <div *ngIf="QandAForm.controls['title'].hasError('required')">
+                                        *Required title
+                                    </div>
+                                </div>
+                                <textarea style="font-size: 16px;" formControlName="description"
+                                    class="form-control form-control-sm mb-3" rows="3"
+                                    placeholder="*Enter your {{type_question ? 'question':'answer'}}..."></textarea>
+                                <div class="color-red mb-2"
+                                    *ngIf="(formvalid) || (QandAForm.controls['description'].dirty)">
+                                    <div *ngIf="QandAForm.controls['description'].hasError('required')">
+                                        *Required description
+                                    </div>
+                                </div>
+                                <div class="dropdown w-100">
+                                    <div class="floatLeft w-50">
+                                        <button *ngIf="type_question" class="btn dropdown-toggle themebgColor text-white mx-4" type="button"
+                                            data-target="#dropdown" data-bs-toggle="dropdown"
+                                            aria-expanded="false">{{selectedCategoryType.name}}</button>
+                                        <ul id="dropdown" class="dropdown-menu dropdown-menu-end ulmenu"
+                                            aria-labelledby="fileType">
+                                            <li *ngFor="let file of lupFileTypes" (click)="onCategoryTypeClick($any($event.target).innerText, file.id)">
+                                                <a class="dropdown-item" href="#">{{ file.categoryType }}</a>
+                                            </li>
+                                        </ul>&nbsp;
+                                        <div class="color-red mt-2"
+                                            *ngIf="(formvalid) || (QandAForm.controls['category'].dirty)">
+                                            <div *ngIf="QandAForm.controls['category'].hasError('required')">
+                                                *Please select category
+                                            </div>
+                                        </div>
+                                        <div class="text-dark" style="margin: 25px;">
+                                            <p><b *ngIf="selectedFiles.length != 0">Selected Documents</b></p>
+                                            <div id="list" *ngIf="selectedFiles.length != 0">
+                                                <ul>
+                                                    <li class="color-red" *ngFor="let file of selectedFiles">{{file.name}} -
+                                                        {{filesSize(file)}}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="floatLeft w-50 mt-1">
+                                        <label type="file" for="files" class="btn themebgColor text-white"
+                                            style="margin-right: 16%;">
+                                            Upload File <i class="fa fa-paperclip fa-lg" aria-hidden="true"></i></label>
+                                        <input style="display:none" type="file" id="files" name="files"
+                                            (change)="OnFileUpload($any($event.target).files)" />
+
+                                        <div class="mt-3 floatLeft" style="font-size: 14px;">
+                                            <span class="themeColor">* Acceptable file formats .jpg, .png, .pdf, .doc,
+                                                .xls, .MP3, .MP4</span>
+                                            <br>
+                                            <span class="themeColor">* File size must be below 100MB</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                        <button type="button" style="margin-top: 10%;"
+                            class="btn btn-secondary text-white floatright mx-3 px-4" data-bs-dismiss="modal"
+                            aria-label="Close" (click)="dismissParentPopups()" >Cancel</button>
+                        <button type="submit" style="margin-top: 10%;"
+                            class="btn themebgColor text-white floatright px-4"
+                            (click)="submitQandA()">Submit</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

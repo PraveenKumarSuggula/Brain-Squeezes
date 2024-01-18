@@ -1,0 +1,58 @@
+.profile {
+    width: 87%;
+    min-height: 30px;
+    margin-left: 8% !important;
+}
+
+.body {
+    .tools {
+        width: 3%;
+        float: left;
+    }
+    .content { 
+        width: 87%;
+        float: left;
+        padding: 2px 5px;
+        background-color: #D9D9D9;
+        color: #6C6C6C;
+        margin-left: 2.5px;
+        overflow: auto;
+    }
+    .bodyheight {
+        min-height: 60px;
+        max-height: 500px;
+    }
+}
+.btnOptions{
+    border-radius: 4px;
+    border: none;
+}
+
+.rate {
+    font-size: 50px;  
+    margin-bottom: -20px; 
+    margin-left: -5px;
+}
+
+.rate-down {
+    margin-left: 2px;
+    margin-top: -20px;
+}
+
+.active {
+    color: #6C6C6C;
+}
+
+.inactive {
+    color: #D9D9D9;
+}
+
+.votecount {
+    width: 60%; 
+    font-size: 22px; 
+    display: inline-block; 
+    vertical-align: middle;
+    margin-left: 2px;
+}
+
+  

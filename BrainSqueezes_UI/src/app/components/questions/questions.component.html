@@ -1,0 +1,27 @@
+<div class="container">
+    <h1 style="color: #AAA7A7;">Recent Questions</h1>
+    <button type="button" style="margin-top: -50px; font-weight: 600;" class="btn themebgColor text-white floatright"
+    (click)="isQuestionType(true)" data-bs-toggle="modal" data-bs-target="#filesModal">+ Ask Question</button>
+    <br>
+</div>
+
+
+<div class=" m-3 mt-0 accordian" *ngFor="let que of questions; let ind = index">
+    <div class="container">
+        <h4 class="mb-0 themeColor">Question Id: {{'#'}}{{que.qid}}</h4>
+        <app-qanda-accordian [data]="que"></app-qanda-accordian>
+        <br class="m-3">
+        <hr *ngIf="onAnswersAvailable(ind)">
+        <h4 class="mb-0" *ngIf="onAnswersAvailable(ind)">Answers:</h4>
+        <div *ngFor="let ans of answers; let i = index">
+            <div *ngIf="ans.qid === que.qid">   
+                <app-qanda-accordian [data]="ans" [question_type]="false"></app-qanda-accordian>
+                <br class="m-3">
+                <!-- <div [hidden]="ansCount > questions.length -1 ? true:false"></div> {{ansCount}}  -->
+                <!-- <hr *ngIf="onAnswersLength(ind,i) > answers.length - 2" class="dotted-line"> -->
+            </div>
+        </div>
+    </div>
+
+</div>
+<app-qanda-popup></app-qanda-popup>

@@ -1,0 +1,39 @@
+.notification-container {
+    position: relative;
+    display: inline-block;
+}
+
+.notification-dropdown {
+    display: none;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+
+}
+
+.notification-container:hover .notification-dropdown {
+    display: block;
+}
+
+.chatbox-dropdown {
+    display: none;
+    top: 75%;
+    left: 55%;
+    z-index: 1;
+}
+
+.chatbox-container:hover .chatbox-dropdown {
+    display: block;
+}
+
+.profile-dropdown {
+    display: none;
+    top: 85%;
+    left: 83%;
+    z-index: 1;
+}
+
+.profile-container:hover .profile-dropdown {
+    display: block;
+}
+
