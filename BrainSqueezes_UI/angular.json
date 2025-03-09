@@ -17,7 +17,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "allowedCommonJsDependencies": ["rfdc"],
+            "allowedCommonJsDependencies": ["rfdc","clone-deep",
+  "@swimlane/ngx-charts"],
             "stylePreprocessorOptions": {
               "includePaths": [
                 "src/assets/variables.scss"
