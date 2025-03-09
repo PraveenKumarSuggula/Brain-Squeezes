@@ -3,3 +3,26 @@
   font-size: 18px;  
   margin: -35px 18px 0px 0px;
 }
+
+/* Demo Login Link */
+.demo-login {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+/* Red Span Text */
+.demo-text {
+  color: red;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* Hover Effect */
+.demo-login:hover .demo-text {
+  text-decoration: underline;
+  transform: scale(1.05);
+}
