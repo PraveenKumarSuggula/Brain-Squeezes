@@ -12,15 +12,17 @@
 <li class="nav-item cursor" routerLink="/dashboard">
     <img src="../../../assets/images/dashboard.png" alt="">
     <a *ngIf="!toggleChanged" class="nav-link"><span>Dashboard</span></a>
-</li>
-<hr *ngIf="!toggleChanged" class="sidebar-divider d-none d-md-block">
+    </li>
+    <hr *ngIf="!toggleChanged" class="sidebar-divider d-none d-md-block">
 <li class="nav-item cursor" routerLink="/categories">
     <img src="../../../assets/images/categorize.png" alt="">
     <a *ngIf="!toggleChanged" class="nav-link"><span>Categories</span></a>
+    <hr *ngIf="!toggleChanged" class="sidebar-divider d-none d-md-block">
 </li>
 <li class="nav-item cursor" routerLink="/questions">
     <img src="../../../assets/images/tasks.png" alt="">
     <a *ngIf="!toggleChanged" class="nav-link"><span>Questions</span></a>
+    <hr *ngIf="!toggleChanged" class="sidebar-divider d-none d-md-block">
 </li>
 <li class="nav-item cursor" routerLink="/tags">
     <img src="../../../assets/images/tags.png" alt="">
