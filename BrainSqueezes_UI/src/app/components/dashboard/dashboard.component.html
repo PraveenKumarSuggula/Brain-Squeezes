@@ -1,38 +1,52 @@
 <div class="container">
-  <h1 style="color: #AAA7A7;">Dashboard</h1>
-  <button type="button" style="margin-top: -50px; font-weight: 600;" class="btn themebgColor text-white floatright"
-  (click)="isQuestionType(true)" data-bs-toggle="modal" data-bs-target="#filesModal">+ Ask Question</button>
-  <br>
-  <div class="chart-container floatright" style="background-color: lightblue;">
-    <ngx-charts-bar-vertical [view]="view" [scheme] ="colorScheme" [results]="single" [xAxis]="true"
-				 [yAxis]="true" [showXAxisLabel]="true" [showYAxisLabel]="true" [xAxisLabel]="xAxisLabel"
-				 [yAxisLabel]="yAxisLabel" (select)="onSelect($event)">
-				</ngx-charts-bar-vertical>
+  <div class="d-flex justify-content-between align-items-center">
+    <h1 class="dashboard-title">Dashboard</h1>
+    <button type="button" class="btn themebgColor text-white ask-question-btn"
+      (click)="isQuestionType(true)" data-bs-toggle="modal" data-bs-target="#filesModal">
+      + Ask Question
+    </button>
+  </div>
+
+  <!-- Stats Section -->
+  <div class="stats-container">
+    <div class="stat-box">
+      <h3>Total Questions</h3>
+      <p>{{ totalQuestions }}</p>
+    </div>
+    <div class="stat-box">
+      <h3>Total Answers</h3>
+      <p>{{ totalAnswers }}</p>
+    </div>
+    <div class="stat-box">
+      <h3>Active Users</h3>
+      <p>{{ activeUsers }}</p>
+    </div>
+  </div>
+
+  <!-- Chart Section -->
+  <div class="chart-container">
+    <ngx-charts-bar-vertical [view]="view" [scheme]="colorScheme" [results]="single" [xAxis]="true"
+      [yAxis]="true" [showXAxisLabel]="true" [showYAxisLabel]="true" [xAxisLabel]="xAxisLabel"
+      [yAxisLabel]="yAxisLabel" (select)="onSelect($event)">
+    </ngx-charts-bar-vertical>
+  </div>
+
+  <!-- Technologies Used -->
+  <div class="tech-container">
+    <h2 class="tech-title">Technologies Used in BrainSqueezers</h2>
+    <div class="tech-buttons">
+        <button class="tech-btn angular"><i class="fab fa-angular"></i> Angular 16.2.0</button>
+        <button class="tech-btn typescript"><i class="fab fa-js-square"></i> TypeScript 5.1.0</button>
+        <button class="tech-btn node"><i class="fab fa-node-js"></i> Node.js 16.1.0</button>
+        <button class="tech-btn cli"><i class="fas fa-terminal"></i> Angular CLI 16.2.2</button>
+        <button class="tech-btn rxjs"><i class="fas fa-sync-alt"></i> RxJS 7.8.0</button>
+        <button class="tech-btn dotnet"><i class="fas fa-code"></i> .NET Core 8.0</button>
+        <button class="tech-btn karma"><i class="fas fa-check-circle"></i> Karma-Jasmine 5.1.0</button>
+        <button class="tech-btn html"><i class="fab fa-html5"></i> HTML5</button>
+        <button class="tech-btn css"><i class="fab fa-css3-alt"></i> CSS3</button>
+        <button class="tech-btn bootstrap"><i class="fab fa-bootstrap"></i> Bootstrap 5.3.0</button>
+    </div>
 </div>
 
-  <h2>Hi This is basic creation of angular application for Brain Squeezes User Interface</h2>
-  <h2>We are using technologies like</h2>
-  <h4>Angular Project 16.2.0</h4>
-  <h4>Typescript 5.1.0</h4>
-  <h4>Node.js 16.1.0</h4>
-  <h4>Angular CLI 16.2.2</h4>
-  <h4>Rxjs 7.8.0</h4>
-  <h4>Karma-jasmine 5.1.0</h4>
-  <h4>HTML 5</h4>
-  <h4>CSS 3</h4>
-  <h4>Bootstrap 5.3.0</h4>
-  <br>
-  <h2>Hi This is basic creation of angular application for Brain Squeezes User Interface</h2>
-  <h2>We are using technologies like</h2>
-  <h4>Angular Project 16.2.0</h4>
-  <h4>Typescript 5.1.0</h4>
-  <h4>Node.js 16.1.0</h4>
-  <h4>Angular CLI 16.2.2</h4>
-  <h4>Rxjs 7.8.0</h4>
-  <h4>Karma-jasmine 5.1.0</h4>
-  <h4>HTML 5</h4>
-  <h4>CSS 3</h4>
-  <h4>Bootstrap 5.3.0</h4>
-</div>
 
 <app-qanda-popup></app-qanda-popup>

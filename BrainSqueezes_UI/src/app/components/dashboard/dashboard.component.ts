@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Color } from '@swimlane/ngx-charts';
 import { CommonService } from 'src/app/services/shared/common.service';
 
@@ -7,40 +7,40 @@ import { CommonService } from 'src/app/services/shared/common.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent {
-  single: any[] = []; // Initialize 'single' with your data
-  multi: any[] = [];
+export class DashboardComponent implements OnInit {
+  single: any[] = [];
+  view: [number, number] = [600, 400]; // Increased size for better visibility
 
-  view: [number, number] = [400, 300]; 
+  // Statistics for dashboard
+  totalQuestions = 200; // Simulated data
+  totalAnswers = 540;
+  activeUsers = 35;
 
-  // options
+  // Chart Options
   xAxisLabel = 'Technology';
-  yAxisLabel = 'No of Questions';
-  colorScheme:any | Color = {
-    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
-  }; ;
+  yAxisLabel = 'No. of Questions';
+  colorScheme: any | Color = {
+    domain: ['#5AA454', '#A10A28', '#C7B42C', '#3366CC']
+  };
 
-  constructor(private commonService: CommonService) {
-    // Initialize 'single' with your data
+  constructor(private commonService: CommonService) {}
+
+  ngOnInit(): void {
+    // Chart Data Initialization
     this.single = [
-      { name: 'Angular', value: 15 },
-      { name: 'Java', value: 49 },
-      { name: 'React', value: 40 },
-      {name: 'TypeScript', value: 24 },
-      { name: 'Python', value: 15 }
+      { name: 'Angular', value: 50 },
+      { name: 'Java', value: 80 },
+      { name: 'React', value: 65 },
+      { name: 'TypeScript', value: 45 },
+      { name: 'Python', value: 30 }
     ];
   }
 
   onSelect(event: any) {
-    console.log(event);
+    console.log('Chart Item Selected:', event);
   }
 
-  isQuestionType(isQuestion: boolean){
-    if(isQuestion){
-      this.commonService.onToggleQandAType(true);
-    }
-    else {
-      this.commonService.onToggleQandAType(false);
-    }
+  isQuestionType(isQuestion: boolean) {
+    this.commonService.onToggleQandAType(isQuestion);
   }
 }
