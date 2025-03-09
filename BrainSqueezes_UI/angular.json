@@ -26,6 +26,7 @@
             },
             "outputPath": "dist/brain-squeezes-ui",
             "index": "src/index.html",
+            "baseHref": "/",
             "main": "src/main.ts",
             "polyfills": [
               "zone.js"
