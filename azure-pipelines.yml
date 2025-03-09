@@ -4,7 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 trigger:
-- master
+- main
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -74,26 +74,4 @@ stages:
               appName: 'BZ1'
               package: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
               runtimeStack: 'NODE|16-lts'
-
-- stage: Acceptance
-  dependsOn: [ Development ]
-  displayName: 'Deploy to Acceptance'
-  jobs:
-    - job:  DeployToAcceptance
-      displayName: 'DeployAcceptance'
-      steps:
-      - script: echo Deploying to Acceptance
-- stage: Production
-  dependsOn: [ Acceptance ]
-  displayName: 'Deploy to Production'
-  jobs:
-    - deployment: DeployProduction
-      pool:
-        vmImage: 'ubuntu-latest'
-      environment: Production
-      strategy:
-        runOnce:
-          deploy:
-            steps:
-            - script: echo Deploying to Production
-     
+    
