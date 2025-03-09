@@ -4,8 +4,8 @@
         <em style="font-size: 15px;" class="cursor">{{ data.authorName }}</em>
     </div>
     <ng-container *ngIf="data.title">
-        <div class="mx-1 profile mb-2 overflowAuto">
-            <h5 class="floatLeft">{{ question_type ? 'Title: ' + data.title : data.title}}</h5>
+        <div class="profile mb-2 overflowAuto">
+            <h5 class="floatLeft mx-2">{{ question_type ? 'Title: ' + data.title :   data.title}}</h5>
         </div>
     </ng-container>
     <div *ngIf="!data.title" class="mx-1 mb-2 profile mb-1">
@@ -28,7 +28,6 @@
                         class="fas fa-caret-up fa-rotate-180 cursor rate rate-down inactive" (click)="onRateDown()"></i>
                 </div>
             </div>
-
         </div>
 
         <div class=" mx-1 tools bodyheight">
@@ -38,6 +37,7 @@
                 src="../../../assets/images/bookmark_booked.png" (click)="onBookmark()">
             <img class="floatLeft cursor" style="width: 25px;" src="../../../assets/images/chat_message.png">
         </div>
+        
         <div class=" mb-3 content bodyheight" style="font-size: 18px;">
             {{data.description}}
         </div>
